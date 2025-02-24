@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios, { AxiosError } from 'axios';
-import { Link } from 'react-router-dom';
-import './Classes.css';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import './Classes.css';
 
 interface Classe {
     id?: number;
@@ -19,14 +18,11 @@ const Classes: React.FC = () => {
     const [search, setSearch] = useState<string>('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        fetchClasses();
-    }, []);
-
-    const fetchClasses = async () => {
+    // Fonction pour récupérer les classes, optimisée avec useCallback
+    const fetchClasses = useCallback(async () => {
         try {
             setLoading(true);
-            const response = await axios.get<Classe[]>('http://localhost:8080/classes'); // Changer l'URL pour les classes
+            const response = await axios.get<Classe[]>('http://localhost:8080/classes');
             setClasses(response.data);
         } catch (err) {
             const axiosError = err as AxiosError;
@@ -34,35 +30,48 @@ const Classes: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
+    useEffect(() => {
+        fetchClasses();
+    }, [fetchClasses]);
+
+    // Gestion de la recherche
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value);
     };
 
-    const handleEdit = (id: number) => {
-        navigate(`/classes/details/${id}`); // Changer la route pour l'édition des classes
+    // Gestion de l'édition
+    const handleEdit = (id?: number) => {
+        if (id !== undefined) {
+            navigate(`/classes/details/${id}`);
+        }
     };
 
-    const handleDelete = async (id: number) => {
-        console.log(`Tentative de suppression de la classe avec l'ID: ${id}`);
+    // Gestion de la suppression
+    const handleDelete = async (id?: number) => {
+        if (id === undefined) return;
+
         if (window.confirm('Voulez-vous vraiment supprimer cette classe ?')) {
             try {
                 const response = await axios.delete(`http://localhost:8080/classes/${id}`);
-                console.log('Response:', response); // Log the response to check for success
+                console.log('Response:', response);
                 setClasses(prevClasses => prevClasses.filter(classe => classe.id !== id));
                 alert('Classe supprimée avec succès!');
-            } catch (error) {
+            } catch (error: any) {
                 console.error('Erreur lors de la suppression:', error);
-                alert('Erreur lors de la suppression: ' + (error.response ? error.response.data : error.message));
+                alert('Erreur lors de la suppression: ' + (error.response?.data ?? error.message));
             }
         }
     };
 
-    const filteredClasses = classes.filter(classe =>
-        classe.name?.toLowerCase().includes(search.toLowerCase()) ||
-        classe.description?.toLowerCase().includes(search.toLowerCase())
-    );
+    // Filtrage des classes en fonction de la recherche
+    const filteredClasses = classes
+        ? classes.filter(classe =>
+            classe.name?.toLowerCase().includes(search.toLowerCase()) ||
+            classe.description?.toLowerCase().includes(search.toLowerCase())
+        )
+        : [];
 
     if (loading) return <div className="loading">Chargement...</div>;
     if (error) return <div className="error">Erreur : {error}</div>;
@@ -78,11 +87,12 @@ const Classes: React.FC = () => {
                     onChange={handleSearchChange}
                     className="search-input"
                 />
-                <Link to="/classes/addclass"> {/* Changer la route pour ajouter une classe */}
+                <Link to="/classes/addclass">
                     <button className="add-button">Nouvelle Classe</button>
                 </Link>
             </div>
-            <table className="classes-table"> {/* Changer le nom de la classe si nécessaire */}
+
+            <table className="classes-table">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -101,10 +111,10 @@ const Classes: React.FC = () => {
                             <td>{classe.description}</td>
                             <td>{classe.archive ? 'Oui' : 'Non'}</td>
                             <td className="actions">
-                                <button className="icon-button edit" onClick={() => handleEdit(classe.id!)}>
+                                <button className="icon-button edit" onClick={() => handleEdit(classe.id)}>
                                     <FaEdit />
                                 </button>
-                                <button className="icon-button delete" onClick={() => handleDelete(classe.id!)}>
+                                <button className="icon-button delete" onClick={() => handleDelete(classe.id)}>
                                     <FaTrash />
                                 </button>
                             </td>

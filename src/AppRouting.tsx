@@ -13,6 +13,9 @@ import EditStudent from "./pages/EditStudent"; // Assurez-vous d'importer le nou
 import ProfesseurDetails from "./pages/ProfesseurDetails";
 import Classes from "./pages/Classes";
 import Course from "./pages/Course";
+import EditClasse from "./pages/EditClasse.tsx";
+import AddClasse from "./pages/AddClasse";
+
 
 export const router = createBrowserRouter([
     {
@@ -65,7 +68,7 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "details/:id",
-                        element: <EditClasses />, // Changer pour EditStudent
+                        element: <EditClasse />, // Changer pour EditStudent
                         handle: {
                             breadcrumb: ({ id }: { id: string }) => `Détails Classe ${id}`,
                         },
