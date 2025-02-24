@@ -1,0 +1,78 @@
+/* Styles pour Teachers */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #c6681d;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 60%;
+    border: 2px solid #c6681d;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-button {
+    padding: 10px 15px;
+    background-color: #c6681d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-button:hover {
+    background-color: #a75718;
+}
+
+.teachers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.teachers-table th, .teachers-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.teachers-table th {
+    background-color: white;
+    color: black;
+}
+
+.teachers-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.teachers-table tr:hover {
+    background-color: #f1e1d3;
+}
+
+.no-results {
+    text-align: center;
+    font-style: italic;
+    color: #a75718;
+    padding: 15px;
+}
+
+.loading, .error {
+    text-align: center;
+    font-size: 18px;
+    color: #c6681d;
+}

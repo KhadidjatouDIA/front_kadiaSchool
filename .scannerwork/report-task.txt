@@ -1,0 +1,6 @@
+projectKey=school-management-app
+serverUrl=http://localhost:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://localhost:9000/dashboard?id=school-management-app
+ceTaskId=2099a460-c7aa-47a3-8707-fdf6fe59ec39
+ceTaskUrl=http://localhost:9000/api/ce/task?id=2099a460-c7aa-47a3-8707-fdf6fe59ec39

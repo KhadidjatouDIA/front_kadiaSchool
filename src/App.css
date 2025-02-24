@@ -1,0 +1,52 @@
+:root {
+  --primaryColor: #d14b2f; /* Couleur principale mise à jour */
+}
+
+.btn {
+  @apply p-1 rounded-md active:scale-95 active:bg-dividergray transition transform duration-150;
+}
+
+.btn-primary {
+  @apply py-2 px-4 bg-primaryColor-500 text-white hover:bg-primaryColor-600;
+}
+
+.btn-text {
+  @apply hover:cursor-pointer hover:bg-dividergray p-1 rounded-md;
+}
+
+.btn-ghost {
+  @apply py-2 px-4 bg-transparent text-primaryColor-500 hover:cursor-pointer border border-primaryColor-500 hover:border-primaryColor-600 hover:text-primaryColor-600 p-1 rounded-lg;
+}
+
+.input {
+  @apply border border-gray-300 dark:border-relevantDark bg-transparent rounded-md p-1 focus:outline-none focus:border-primaryColor-500 focus:ring-1 focus:ring-primaryColor-300 dark:focus:ring-primaryColor-700 transition duration-150 ease-in-out text-black dark:text-white;
+}
+
+.input-error {
+  @apply border border-red-500 bg-transparent rounded-md p-1 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-300 dark:focus:ring-red-700 transition duration-150 ease-in-out text-black dark:text-white;
+}
+
+.text {
+  @apply text-black dark:text-white;
+}
+
+.label {
+  @apply text-gray-700 dark:text-gray-400;
+}
+
+::-webkit-scrollbar {
+  @apply w-[6px];
+  @apply h-[6px];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dividergray rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dividergray;
+}

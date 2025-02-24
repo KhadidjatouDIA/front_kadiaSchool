@@ -1,0 +1,62 @@
+.container {
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 20px auto; /* Centre le formulaire sur la page */
+    padding: 20px;
+    border: 1px solid #ddd; /* Bordure légère autour du formulaire */
+    border-radius: 10px; /* Coins arrondis */
+    background-color: #ffffff; /* Couleur de fond blanche */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+}
+
+h1 {
+    text-align: center; /* Centre le titre */
+    margin-bottom: 20px; /* Espace en bas du titre */
+    color: #e77e2b; /* Couleur du texte du titre */
+}
+
+.form-group {
+    display: flex; /* Utilisation de flex pour aligner les éléments */
+    margin-bottom: 15px; /* Espace entre les groupes de champs */
+}
+
+label {
+    flex: 1; /* Permet au label d'occuper une largeur flexible */
+    margin-bottom: 5px; /* Espace entre le label et le champ */
+    font-weight: bold; /* Met en gras les labels */
+    color: #555; /* Couleur des labels */
+}
+
+input,
+select {
+    flex: 1; /* Permet aux champs d'occuper une largeur flexible */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure légère */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 14px; /* Taille de la police */
+    margin-left: 10px; /* Espace à gauche entre le label et le champ */
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff; /* Couleur de bordure lors du focus */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+.submit-button {
+    width: auto; /* Ajuste la largeur automatique pour le bouton */
+    padding: 10px 20px; /* Espacement interne du bouton */
+    background-color: #e77e2b; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur main */
+    font-size: 14px; /* Taille de la police */
+    transition: background-color 0.3s, transform 0.2s; /* Transitions douces */
+    display: inline-block; /* Ajuste le comportement de l'élément */
+    margin-top: 10px; /* Espace au-dessus du bouton */
+}
+
+.submit-button:hover {
+    background-color: wheat; /* Couleur au survol */
+    transform: scale(1.05); /* Agrandissement léger au survol */
+}

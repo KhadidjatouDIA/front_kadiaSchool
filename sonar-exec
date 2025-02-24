@@ -1,0 +1,11 @@
+
+-----LINUX-----
+sonar-scanner \
+  -Dsonar.projectKey=school-management-app \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=sqp_a6b4b33e752c6ac1b18508dd71fd3dfeafdb6c8a
+
+
+-----WINDOWS-----
+sonar-scanner.bat -D"sonar.projectKey=school-management-app" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_f2a7855e3ac8b06942e706ba0a72b55044b1ea95"

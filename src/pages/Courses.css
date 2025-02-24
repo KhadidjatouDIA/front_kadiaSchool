@@ -1,0 +1,83 @@
+.courses-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #c6681d;
+    text-align: center;
+}
+
+/* Barre de recherche et bouton */
+.courses-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.courses-search-input {
+    padding: 10px;
+    width: 60%;
+    border: 2px solid #c6681d;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.courses-add-button {
+    padding: 10px 15px;
+    background-color: #c6681d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.courses-add-button:hover {
+    background-color: #a75718;
+}
+
+/* Tableau de cours */
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.courses-table th, .courses-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.courses-table th {
+    background-color: #c6681d;
+    color: white;
+    font-weight: bold;
+}
+
+.courses-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.courses-table tr:hover {
+    background-color: #f1e1d3;
+}
+
+/* Messages de statut */
+.courses-no-results {
+    text-align: center;
+    font-style: italic;
+    color: #a75718;
+    padding: 15px;
+}
+
+.courses-loading, .courses-error {
+    text-align: center;
+    font-size: 18px;
+    color: #c6681d;
+    margin-top: 15px;
+}
